@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package service;
+option go_package = "github.com/OverMV/grpc_test_repo/proto/service;service";
+
+message Hello {
+  message Request {
+    string UUID = 1;
+    string Name = 2;
+  }
+  message Response {
+    string UUID = 1;
+    string HiName = 2;
+  }
+}
+
+
+service Porter {
+  rpc SayHello(Hello.Request) returns (Hello.Response);
+}
